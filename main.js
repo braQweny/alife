@@ -33,6 +33,7 @@ var settings = {
 };
 
 var world = new Array(rows);
+
 for (row = 0; row < rows; row++) {
     world[row] = new Array(cols);
 }
