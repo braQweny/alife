@@ -27,12 +27,11 @@ const Init = {
     BACT_NUM_LIMIT: 1000000,
 
     initializedLocationModifiersList: function () {
-        let locationModifiers = new ArrayList(4);
-        locationModifiers.push(new LocationModifier(-1, 0));
-        locationModifiers.push(new LocationModifier(1, 0));
-        locationModifiers.push(new LocationModifier(0, -1));
-        locationModifiers.push(new LocationModifier(0, 1));
-
+        let locationModifiers = new ArrayList();
+        locationModifiers.add([new LocationModifier(-1, 0), new LocationModifier(1, 0), new LocationModifier(0, -1), new LocationModifier(0, 1)]);
+        // locationModifiers.add([new LocationModifier(1, 0)]);
+        // locationModifiers.add([new LocationModifier(0, -1)]);
+        // locationModifiers.add([new LocationModifier(0, 1)]);
         return locationModifiers;
     }
 };

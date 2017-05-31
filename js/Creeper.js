@@ -30,7 +30,9 @@ class Creeper {
 
     reduceCreeperEnergy(energy) {
         this.creeperEnergy -= energy;
-        if (this.creeperEnergy < 0) this.creeperEnergy = 0;
+        if (this.creeperEnergy < 0) {
+            this.creeperEnergy = 0;
+        }
     }
 
     creeperHasEnergy() {
@@ -44,23 +46,26 @@ class Creeper {
 
     checkNewCellules(w, tempWorld) {
         let locationModifiers = Init.initializedLocationModifiersList();
+        // console.log(locationModifiers);
         let i, newXPos, newYPos, bestXPos, bestYPos, bactNum;
-
+        // console.log(locationModifiers.size())
         bestXPos = -1;
         bestYPos = -1;
         bactNum = 0;
 
         while (locationModifiers.size() > 0) {
             i = parseInt((Math.random() * locationModifiers.size()));
+            // console.log(i)
             newXPos = this.xPos + locationModifiers.get(i).modifyX;
             newYPos = this.yPos + locationModifiers.get(i).modifyY;
 
-            if (!World.isCelluleOut(newXPos, newYPos))
+            if (!(World.isCelluleOut(newXPos, newYPos))) {
                 if (w.board[newXPos][newYPos].getBactNum() > bactNum) {
                     bactNum = w.board[newXPos][newYPos].getBactNum();
                     bestXPos = newXPos;
                     bestYPos = newYPos;
                 }
+            }
 
             locationModifiers.remove(i);
         }

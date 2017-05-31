@@ -65,8 +65,8 @@ class Cellule {
     }
 
     removeCreeper(creeper) {
-        if (!creepers.isEmpty()) {
-            creepers.remove(creeper)
+        if (!(this.creepers.isEmpty())) {
+            this.creepers.remove(creeper)
         } else {
             console.log('UWAGA - miała miejsce próba usunięcia pełzacza z komórki, w której nie ma pełzaczy')
 
@@ -84,26 +84,26 @@ class Cellule {
 
 
         if (this.bacteriaNum > 0) {
-            newBacteriaNumber = parseInt(Math.round(bacteriaNum * Init.BACT_MULTIPLICATION_RATE))
+            newBacteriaNumber = parseInt(Math.round(this.bacteriaNum * Init.BACT_MULTIPLICATION_RATE))
 
             newBacteriaStayingInCell = (newBacteriaNumber * Init.BACT_SPREAD_RATE)
             tempWorld.board[xPos][yPos].addBactNum(newBacteriaStayingInCell)
 
             remainingNewBacteriaMovingToNewCells = newBacteriaNumber - newBacteriaStayingInCell
 
-            goToNewCellules(tempWorld, remainingNewBacteriaMovingToNewCells)
+            this.goToNewCellules(tempWorld, remainingNewBacteriaMovingToNewCells)
         }
     }
 
     goToNewCellules(tempWorld, remainingNewBacteriaMovingToNewCells) {
         let newXPos, newYPos, newBacteriaPartMovingToNewCell;
-        locationModifiers = Init.initializedLocationModifiersList();
+        let locationModifiers = Init.initializedLocationModifiersList();
 
-        existingCellulesLocationModifiers = new ArrayList()
+        let existingCellulesLocationModifiers = new ArrayList()
 
         for (let i = 0; i < locationModifiers.size(); i++) {
-            newXPos = xPos + locationModifiers.get(i).modifyX;
-            newYPos = yPos + locationModifiers.get(i).modifyY;
+            newXPos = this.xPos + locationModifiers.get(i).modifyX;
+            newYPos = this.yPos + locationModifiers.get(i).modifyY;
 
             if (!World.isCelluleOut(newXPos, newYPos))
                 existingCellulesLocationModifiers.add(locationModifiers.get(i))
@@ -112,8 +112,9 @@ class Cellule {
         let i;
         while (existingCellulesLocationModifiers.size() > 0 && remainingNewBacteriaMovingToNewCells > 0) {
             i = parseInt((Math.random() * existingCellulesLocationModifiers.size()))
-            newXPos = xPos + existingCellulesLocationModifiers.get(i).modifyX
-            newYPos = yPos + existingCellulesLocationModifiers.get(i).modifyY
+            console.log(i)
+            newXPos = this.xPos + existingCellulesLocationModifiers.get(i).modifyX
+            newYPos = this.yPos + existingCellulesLocationModifiers.get(i).modifyY
 
             if (existingCellulesLocationModifiers.size() == 1) {
                 tempWorld.board[newXPos][newYPos].addBactNum(remainingNewBacteriaMovingToNewCells)

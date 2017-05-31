@@ -2,13 +2,9 @@ import Cellule  from './Cellule'
 import Init  from './Init'
 import Creeper  from './Creeper'
 class World {
-    board = [];
-
 
     constructor() {
-        // board = new Cellule[Init.SIZE_WORLD][Init.SIZE_WORLD];
-
-
+        this.board = [];
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             this.board[i] = [];
             for (let j = 0; j < Init.SIZE_WORLD; j++) {
@@ -30,15 +26,14 @@ class World {
     }
 
     setBacteriaNumAtPosition(bactNum, posX, posY) {
-        board[posX][posY].setBactNum(bactNum);
+        this.board[posX][posY].setBactNum(bactNum);
     }
 
     setOneCreeperAtPosition(posX, posY) {
-        board[posX][posY].creepers.add(new Creeper(posX, posY));
+        this.board[posX][posY].creepers.add(new Creeper(posX, posY));
     }
 
     sowBacteries(bactNumToSow) {
-
         let allNumBact = 0;
         let randomNumBact;
         let iPos;
@@ -83,7 +78,7 @@ class World {
             jPos = parseInt((Math.random() * 100) / Init.SIZE_WORLD);
             let cell = w.board[iPos][jPos];
 
-            if (!cell.getOld()) {
+            if (!(cell.getOld())) {
                 if (Math.random() > 0.5) {
                     cell.oneCelluleCreepersAction(w, tempWorld);
                     cell.oneCelluleBacteriaMultiplication(tempWorld);
