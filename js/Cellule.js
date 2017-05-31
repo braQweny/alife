@@ -1,7 +1,7 @@
 import ArrayList  from 'arraylist'
 
 class Cellule {
-dd = 33;
+  zz = 2
 
   constructor () {
     this.creepers = new ArrayList()
@@ -11,7 +11,7 @@ dd = 33;
 
   setYPos (j) { this.yPos = j }
 
-  getOld() { return old; }
+  getOld () { return old }
 
 }
 

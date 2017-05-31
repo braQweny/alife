@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   context: __dirname,
@@ -27,7 +27,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: [['es2015', {'loose': true}], 'stage-2']
         }
       }, {
         test: /\.css$/,

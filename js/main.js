@@ -43,8 +43,8 @@ const Init = {
 };
 console.log('TEST');
 
-let cel = new Cellule();
-// console.log(cel.xPos)
+var cel = new Cellule();
+console.log(cel)
 cel.setXPos(21)
 
 console.log(cel.xPos)
