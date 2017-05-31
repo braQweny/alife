@@ -2,7 +2,6 @@ import ArrayList  from 'arraylist'
 import LocationModifier from './LocationModifier.js'
 import Cellule from './Cellule.js'
 
-
 function defineConst(obj, constName, value) {
     Object.defineProperty(obj, constName, {
         value: value,
@@ -11,9 +10,6 @@ function defineConst(obj, constName, value) {
         configurable: true
     })
 }
-
-
-
 
 const Init = {
     SIZE_WORLD: 10,
@@ -40,13 +36,6 @@ const Init = {
         return locationModifiers;
     }
 };
-console.log('TEST');
-
-var cel = new Cellule();
-console.log(cel)
-cel.setXPos(21)
-
-console.log(cel.xPos)
 
 
 export default Init

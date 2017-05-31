@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "arraylist": "^0.1.0",
+    "arraylists": "^2.1.1",
     "babel-core": "6.16.0",
     "babel-jest": "16.0.0",
     "babel-loader": "6.2.7",
@@ -25,8 +26,8 @@
     "babel-register": "6.16.0",
     "css-loader": "0.25.0",
     "style-loader": "0.13.1",
-    "webpack": "2.1.0-beta.25",
-    "webpack-dev-server": "1.16.2"
+    "webpack": "latest",
+    "webpack-dev-server": "^2.4.5"
   },
   "directories": {},
   "repository": {
