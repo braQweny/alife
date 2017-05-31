@@ -1,6 +1,7 @@
 "use strict";
 import ArrayList  from 'arraylist'
 import LocationModifier from './LocationModifier.js'
+import Cellule from './Cellule.js'
 
 
 function defineConst(obj, constName, value) {
@@ -41,3 +42,9 @@ const Init = {
     }
 };
 console.log('TEST');
+
+let cel = new Cellule();
+// console.log(cel.xPos)
+cel.setXPos(21)
+
+console.log(cel.xPos)
