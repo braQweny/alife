@@ -1,4 +1,3 @@
-"use strict";
 import ArrayList  from 'arraylist'
 import LocationModifier from './LocationModifier.js'
 import Cellule from './Cellule.js'
@@ -48,3 +47,6 @@ console.log(cel)
 cel.setXPos(21)
 
 console.log(cel.xPos)
+
+
+export default Init
