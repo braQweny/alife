@@ -26,7 +26,6 @@ class ArtLife_2_1 {
     }
 
     mainTest(w) {
-        console.log(w)
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++) {
                 console.log(w.board[i][j].getBactNum(), ' | ',

@@ -1,10 +1,11 @@
 import ArrayList  from 'arraylist'
 import Init  from './Init'
+import World  from './World'
 
 class Cellule {
     xPos;
     yPos;
-    bacteriaNum;
+    bacteriaNum = 0;
     old;
     creepers;
 
@@ -66,7 +67,7 @@ class Cellule {
 
     removeCreeper(creeper) {
         if (!(this.creepers.isEmpty())) {
-            this.creepers.remove(creeper)
+            this.creepers.removeElement(creeper)
         } else {
             console.log('UWAGA - miała miejsce próba usunięcia pełzacza z komórki, w której nie ma pełzaczy')
 
@@ -87,7 +88,7 @@ class Cellule {
             newBacteriaNumber = parseInt(Math.round(this.bacteriaNum * Init.BACT_MULTIPLICATION_RATE))
 
             newBacteriaStayingInCell = (newBacteriaNumber * Init.BACT_SPREAD_RATE)
-            tempWorld.board[xPos][yPos].addBactNum(newBacteriaStayingInCell)
+            tempWorld.board[this.xPos][this.yPos].addBactNum(newBacteriaStayingInCell)
 
             remainingNewBacteriaMovingToNewCells = newBacteriaNumber - newBacteriaStayingInCell
 
@@ -112,7 +113,6 @@ class Cellule {
         let i;
         while (existingCellulesLocationModifiers.size() > 0 && remainingNewBacteriaMovingToNewCells > 0) {
             i = parseInt((Math.random() * existingCellulesLocationModifiers.size()))
-            console.log(i)
             newXPos = this.xPos + existingCellulesLocationModifiers.get(i).modifyX
             newYPos = this.yPos + existingCellulesLocationModifiers.get(i).modifyY
 

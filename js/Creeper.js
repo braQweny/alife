@@ -83,13 +83,13 @@ class Creeper {
         let bornCreepersNum = 0;
 
         while (this.creeperHasEnoughEnergyToMakeNewCreeper() && bornCreepersNum < (Init.MAX_CREEPER_NUM_BORN_PER_TACK - 1)) {
-            currentCellule.addCreeper(new Creeper(xPos, yPos));
+            currentCellule.addCreeper(new Creeper(this.xPos, this.yPos));
             this.reduceCreeperEnergy(Init.CREEPER_ENERGY_PRO_LIFE);
             bornCreepersNum++;
         }
 
         if (this.creeperHasEnoughEnergyToMakeNewCreeper()) {
-            currentCellule.addCreeper(new Creeper(xPos, yPos));
+            currentCellule.addCreeper(new Creeper(this.xPos, this.yPos));
             this.reduceCreeperEnergy(Init.CREEPER_ENERGY_PRO_LIFE);
         }
 
@@ -113,7 +113,7 @@ class Creeper {
                     if (bestXPos > -1 && bestYPos > -1) {
                         this.reduceCreeperEnergy(1);
                         tempCreeper = this;
-                        w.board[xPos][yPos].removeCreeper(this);
+                        w.board[this.xPos][this.yPos].removeCreeper(this);
                         tempWorld.board[bestXPos][bestYPos].moveCreeper(tempCreeper);
                     } else {
                         this.reduceCreeperEnergy(1);
