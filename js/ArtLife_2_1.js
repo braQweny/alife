@@ -3,11 +3,10 @@ import Init  from './Init'
 import World  from './World'
 
 class ArtLife_2_1 {
-    totallyCreepers = new ArrayList();
-    totallyBacteria = new ArrayList();
+    static totallyCreepers = new ArrayList();
+    static totallyBacteria = new ArrayList();
 
-
-    bacteriaTest(w) {
+    static bacteriaTest(w) {
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++) {
                 console.log("%d", w.board[i][j].getBactNum());
@@ -16,7 +15,7 @@ class ArtLife_2_1 {
         }
     }
 
-    creepersTest(w) {
+    static creepersTest(w) {
 
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++)
@@ -25,17 +24,17 @@ class ArtLife_2_1 {
         }
     }
 
-    mainTest(w) {
+    static mainTest(w) {
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++) {
-                console.log(w.board[i][j].getBactNum(), ' | ',
+                console.log(w.board[i][j].getBactNum() + "|" +
                     w.board[i][j].getCreepersNum());
             }
             console.log("\n");
         }
     }
 
-    totalNum(w, what) {
+    static totalNum(w, what) {
         let sum = 0;
         for (let i = 0; i < Init.SIZE_WORLD; i++)
             for (let j = 0; j < Init.SIZE_WORLD; j++)
@@ -49,7 +48,7 @@ class ArtLife_2_1 {
         return sum;
     }
 
-    addNewBornOrganismsToMainWorldCellules(mainWorld, tempWorld) {
+      static addNewBornOrganismsToMainWorldCellules(mainWorld, tempWorld) {
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++) {
                 mainWorld.board[i][j].addBactNum(tempWorld.board[i][j].getBactNum());
@@ -58,10 +57,10 @@ class ArtLife_2_1 {
         }
     }
 
-
-    main() {
-        let mainWorld = new World();
+    static main() {
+        let mainWorld;
         let tempWorld;
+        mainWorld = new World();
 
         mainWorld.sowBacteries(Init.START_NUM_BACT);
         mainWorld.sowCreepers(Init.START_NUM_CREEPERS);
@@ -84,7 +83,9 @@ class ArtLife_2_1 {
                 totalBactNum = this.totalNum(mainWorld, "BACTERIA");
                 this.totallyBacteria.add(totalBactNum);
 
-                if (totalBactNum > Init.BACT_NUM_LIMIT) prematureEndOfSimulation = true;
+                if (totalBactNum > Init.BACT_NUM_LIMIT) {
+                    prematureEndOfSimulation = true;
+                }
 
                 num++;
                 numTact++;

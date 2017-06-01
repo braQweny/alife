@@ -1,6 +1,7 @@
 import Cellule  from './Cellule'
 import Init  from './Init'
 import Creeper  from './Creeper'
+
 class World {
 
     constructor() {
@@ -17,12 +18,7 @@ class World {
 
     static isCelluleOut(x, y) {
 
-        if ((x < 0) || (y < 0) || (x == Init.SIZE_WORLD) || (y == Init.SIZE_WORLD)) {
-            return true;
-        } else {
-            return false;
-
-        }
+        return (x < 0) || (y < 0) || (x === Init.SIZE_WORLD) || (y === Init.SIZE_WORLD);
     }
 
     setBacteriaNumAtPosition(bactNum, posX, posY) {

@@ -5,7 +5,7 @@ import World  from './World'
 class Cellule {
     xPos;
     yPos;
-    bacteriaNum = 0;
+    bacteriaNum = new Number();
     old;
     creepers;
 
@@ -56,6 +56,7 @@ class Cellule {
     }
 
     addCreeper(newCreeper) {
+        // console.log(this.creepers.add);
         this.creepers.add(newCreeper)
     }
 
@@ -81,16 +82,16 @@ class Cellule {
     }
 
     oneCelluleBacteriaMultiplication(tempWorld) {
-        let newBacteriaNumber, newBacteriaStayingInCell, remainingNewBacteriaMovingToNewCells
+        let newBacteriaNumber, newBacteriaStayingInCell, remainingNewBacteriaMovingToNewCells;
 
 
         if (this.bacteriaNum > 0) {
-            newBacteriaNumber = parseInt(Math.round(this.bacteriaNum * Init.BACT_MULTIPLICATION_RATE))
+            newBacteriaNumber = parseInt(Math.round(this.bacteriaNum * Init.BACT_MULTIPLICATION_RATE));
 
-            newBacteriaStayingInCell = (newBacteriaNumber * Init.BACT_SPREAD_RATE)
-            tempWorld.board[this.xPos][this.yPos].addBactNum(newBacteriaStayingInCell)
+            newBacteriaStayingInCell = parseInt((newBacteriaNumber * Init.BACT_SPREAD_RATE));
+            tempWorld.board[this.xPos][this.yPos].addBactNum(newBacteriaStayingInCell);
 
-            remainingNewBacteriaMovingToNewCells = newBacteriaNumber - newBacteriaStayingInCell
+            remainingNewBacteriaMovingToNewCells = newBacteriaNumber - newBacteriaStayingInCell;
 
             this.goToNewCellules(tempWorld, remainingNewBacteriaMovingToNewCells)
         }
@@ -100,7 +101,7 @@ class Cellule {
         let newXPos, newYPos, newBacteriaPartMovingToNewCell;
         let locationModifiers = Init.initializedLocationModifiersList();
 
-        let existingCellulesLocationModifiers = new ArrayList()
+        let existingCellulesLocationModifiers = new ArrayList();
 
         for (let i = 0; i < locationModifiers.size(); i++) {
             newXPos = this.xPos + locationModifiers.get(i).modifyX;
@@ -112,16 +113,16 @@ class Cellule {
 
         let i;
         while (existingCellulesLocationModifiers.size() > 0 && remainingNewBacteriaMovingToNewCells > 0) {
-            i = parseInt((Math.random() * existingCellulesLocationModifiers.size()))
-            newXPos = this.xPos + existingCellulesLocationModifiers.get(i).modifyX
-            newYPos = this.yPos + existingCellulesLocationModifiers.get(i).modifyY
+            i = parseInt((Math.random() * existingCellulesLocationModifiers.size()));
+            newXPos = this.xPos + existingCellulesLocationModifiers.get(i).modifyX;
+            newYPos = this.yPos + existingCellulesLocationModifiers.get(i).modifyY;
 
-            if (existingCellulesLocationModifiers.size() == 1) {
-                tempWorld.board[newXPos][newYPos].addBactNum(remainingNewBacteriaMovingToNewCells)
+            if (existingCellulesLocationModifiers.size() === 1) {
+                tempWorld.board[newXPos][newYPos].addBactNum(remainingNewBacteriaMovingToNewCells);
                 remainingNewBacteriaMovingToNewCells = 0
             } else {
-                newBacteriaPartMovingToNewCell = parseInt((Math.random() * remainingNewBacteriaMovingToNewCells))
-                tempWorld.board[newXPos][newYPos].addBactNum(newBacteriaPartMovingToNewCell)
+                newBacteriaPartMovingToNewCell = parseInt((Math.random() * remainingNewBacteriaMovingToNewCells));
+                tempWorld.board[newXPos][newYPos].addBactNum(newBacteriaPartMovingToNewCell);
 
                 remainingNewBacteriaMovingToNewCells -= newBacteriaPartMovingToNewCell
             }
