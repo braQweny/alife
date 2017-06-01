@@ -48,7 +48,7 @@ class ArtLife_2_1 {
         return sum;
     }
 
-      static addNewBornOrganismsToMainWorldCellules(mainWorld, tempWorld) {
+    static addNewBornOrganismsToMainWorldCellules(mainWorld, tempWorld) {
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++) {
                 mainWorld.board[i][j].addBactNum(tempWorld.board[i][j].getBactNum());
@@ -61,11 +61,16 @@ class ArtLife_2_1 {
         let mainWorld;
         let tempWorld;
         mainWorld = new World();
+        let arr = [];
 
         mainWorld.sowBacteries(Init.START_NUM_BACT);
         mainWorld.sowCreepers(Init.START_NUM_CREEPERS);
         let numTact = 0, num, totalBactNum;
-
+        arr.push({
+            tactNum: numTact,
+            bactNum: this.totalNum(mainWorld, "BACTERIA"),
+            creeperNum: this.totalNum(mainWorld, "CREEPERS")
+        });
         console.log("Stan początkowy");
         this.mainTest(mainWorld);
 
@@ -89,9 +94,17 @@ class ArtLife_2_1 {
 
                 num++;
                 numTact++;
+                arr.push({
+                    tactNum: numTact,
+                    bactNum: this.totalNum(mainWorld, "BACTERIA"),
+                    creeperNum: this.totalNum(mainWorld, "CREEPERS")
+                });
+
+
             }
             console.log("Przebieg " + numTact);
             this.mainTest(mainWorld);
+
         }
 
         console.log("\n");
@@ -112,6 +125,8 @@ class ArtLife_2_1 {
         }
 
         console.log("\n");
+
+        return arr;
     }
 }
 

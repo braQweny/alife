@@ -1,9 +1,9 @@
 {
-  "name": "jsai",
-  "version": "0.0.1",
+  "name": "AI",
+  "version": "1.0.0",
   "description": "AI",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p",
     "watch": "npm run build -- --watch",
     "dev": "webpack-dev-server"
   },
@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "arraylist": "^0.1.0",
-    "arraylists": "^2.1.1",
     "babel-core": "6.16.0",
     "babel-jest": "16.0.0",
     "babel-loader": "6.2.7",
@@ -24,7 +23,9 @@
     "babel-preset-react": "6.16.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "6.16.0",
+    "chartist": "^0.11.0",
     "css-loader": "0.25.0",
+    "d3": "^4.9.1",
     "style-loader": "0.13.1",
     "webpack": "latest",
     "webpack-dev-server": "^2.4.5"

@@ -64,10 +64,11 @@ class World {
         let iPos;
         let jPos;
         // poniżej przygotowanie komórek do losowych odwiedzin
-        for (let i = 0; i < Init.SIZE_WORLD; i++)
-            for (let j = 0; j < Init.SIZE_WORLD; j++)
+        for (let i = 0; i < Init.SIZE_WORLD; i++) {
+            for (let j = 0; j < Init.SIZE_WORLD; j++) {
                 w.board[i][j].setOld(false);
-
+            }
+        }
 
         while (numCellules < allCellules) {
             iPos = parseInt((Math.random() * 100) / Init.SIZE_WORLD);

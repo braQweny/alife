@@ -5,7 +5,7 @@ import World  from './World'
 class Cellule {
     xPos;
     yPos;
-    bacteriaNum = new Number();
+    bacteriaNum = 0;
     old;
     creepers;
 

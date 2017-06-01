@@ -23,8 +23,76 @@ class Init {
         locationModifiers.add(new LocationModifier(1, 0));
         locationModifiers.add(new LocationModifier(0, -1));
         locationModifiers.add(new LocationModifier(0, 1));
+
+        // locationModifiers.add(new LocationModifier(-1, -1));
+        // locationModifiers.add(new LocationModifier(1, 1));
+        // locationModifiers.add(new LocationModifier(-1, 1));
+        // locationModifiers.add(new LocationModifier(1, -1));
+
         return locationModifiers;
     }
+
+    static get_SIZE_WORLD() {
+        return this.SIZE_WORLD;
+    }
+
+    static get_NUM_TACT() {
+        return this.NUM_TACT;
+    }
+
+    static get_VEW_NUM_TACT() {
+        return this.VEW_NUM_TACT;
+    }
+
+    static get_START_NUM_CREEPERS() {
+        return this.START_NUM_CREEPERS;
+    }
+
+    static get_START_NUM_BACT() {
+        return this.START_NUM_BACT;
+    }
+
+    static get_CREEPER_ENERGY_PRO_LIFE() {
+        return this.CREEPER_ENERGY_PRO_LIFE;
+    }
+
+
+    static get_CREEPER_INITIAL_ENERGY() {
+        return this.CREEPER_INITIAL_ENERGY;
+    }
+
+
+    static get_CREEPER_ENERGY_RESERVE() {
+        return this.CREEPER_ENERGY_RESERVE;
+    }
+
+
+    static get_MAX_CREEPER_NUM_BORN_PER_TACK() {
+        return this.MAX_CREEPER_NUM_BORN_PER_TACK;
+    }
+
+    static get_MAX_BACT_EATEN_BY_CREEPER() {
+        return this.MAX_BACT_EATEN_BY_CREEPER;
+    }
+
+
+    static get_BACT_MULTIPLICATION_RATE() {
+        return this.BACT_MULTIPLICATION_RATE;
+    }
+
+    static get_BACT_SPREAD_RATE() {
+        return this.BACT_SPREAD_RATE;
+    }
+
+    static get_CREEPER_ENERGY_RESERVE() {
+        return this.CREEPER_ENERGY_RESERVE;
+    }
+
+    static get_BACT_NUM_LIMIT() {
+        return this.BACT_NUM_LIMIT;
+    }
+
+
 }
 
 
