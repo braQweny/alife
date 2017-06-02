@@ -126,7 +126,7 @@ class ArtLife_2_1 {
 
         console.log("\n");
 
-        return arr;
+        return {arr:arr,total:[this.totallyCreepers,this.totallyBacteria]}
     }
 }
 
