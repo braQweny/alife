@@ -20,8 +20,9 @@ class ArtLife_2_1 {
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
             for (let j = 0; j < Init.SIZE_WORLD; j++)
                 console.log("%d", w.board[i][j].getCreepersNum());
-            console.log("\n");
+
         }
+      console.log("\n");
     }
 
     static mainTest(w) {
@@ -30,8 +31,9 @@ class ArtLife_2_1 {
                 console.log(w.board[i][j].getBactNum() + "|" +
                     w.board[i][j].getCreepersNum());
             }
-            console.log("\n");
+
         }
+      console.log("\n");
     }
 
     static totalNum(w, what) {
@@ -112,12 +114,10 @@ class ArtLife_2_1 {
         console.log("Bacteries");
         for (let i = 0; i < this.totallyCreepers.size(); i++) {
             console.log("%d", this.totallyBacteria.get(i));
-            console.log("\n");
         }
         console.log("Creepers");
         for (let i = 0; i < this.totallyCreepers.size(); i++) {
             console.log("%d", this.totallyCreepers.get(i));
-            console.log("\n");
         }
         if (prematureEndOfSimulation) {
             console.log("Sumaryczna liczba bakterii przekroczyła " + Init.BACT_NUM_LIMIT
