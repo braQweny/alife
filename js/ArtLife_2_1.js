@@ -125,9 +125,13 @@ class ArtLife_2_1 {
         }
 
         console.log("\n");
+        let totallyB = this.totallyBacteria.toArray();
+        let totallyC = this.totallyCreepers.toArray();
 
-        return {arr:arr,total:[this.totallyCreepers,this.totallyBacteria]}
+        this.totallyBacteria.clear();
+        this.totallyCreepers.clear();
+
+        return {arr:arr,total:[totallyC,totallyB]}
     }
 }
-
 export default ArtLife_2_1
