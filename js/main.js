@@ -43,7 +43,6 @@ function draw1() {
             right: 40
         }
     })
-
 }
 
 function draw2() {
@@ -62,7 +61,6 @@ function draw2() {
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'))
         chart.draw(data, options)
     }
-
 }
 
 let button = document.getElementById('update');
@@ -91,40 +89,39 @@ button.addEventListener('click', () => {
 
 })
 
-let up = document.getElementById('up')
+let up = document.getElementById('up');
 
 up.addEventListener('click', () => {
-    console.log('RECOMP')
+    console.log('RECOMP');
     data = ArtLife_2_1.main();
     arr = data['arr'];
     googleArr = arr.map((tactObject) => {
         return [tactObject.creeperNum, tactObject.bactNum]
-    })
-    googleArr.unshift(['creeperNum', 'bactNum'])
+    });
+    googleArr.unshift(['creeperNum', 'bactNum']);
 
     num = arr.map((tactObject) => {
         return tactObject.tactNum
-    })
+    });
     creep = arr.map((tactObject) => {
         return tactObject.creeperNum
-    })
+    });
 
     back = arr.map((tactObject) => {
         return tactObject.bactNum
-    })
-    draw1()
-    draw2()
+    });
+    draw1();
+    draw2();
     table(data['total']);
+});
 
-})
-
-Helpers.setValue()
+Helpers.setValue();
 
 
-function table(arr) {
-
-    var array = arr;
-
+function table(arr2) {
+    console.log('======> DATA')
+    console.dir(arr2);
+    var array = arr2;
     var arrayLength = array[0].length;
 
     var theTable = document.createElement('table');
@@ -142,11 +139,11 @@ function table(arr) {
     tr.appendChild(td2);
     theTable.appendChild(tr);
 
-    for (var i = 0, tr, td1, td2, td3; i < arrayLength; i++) {
-        tr = document.createElement('tr');
-        td1 = document.createElement('td');
-        td2 = document.createElement('td');
-        td3 = document.createElement('td');
+    for (let i = 0; i < arrayLength; i++) {
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
 
         if ((i % 10) == 0) {
             td1.appendChild(document.createTextNode(array[0][i]));
@@ -158,6 +155,6 @@ function table(arr) {
         tr.appendChild(td2);
         theTable.appendChild(tr);
     }
-
+    document.getElementById('table').innerHTML = '';
     document.getElementById('table').append(theTable);
 }
