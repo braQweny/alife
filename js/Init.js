@@ -16,6 +16,15 @@ class Init {
     static BACT_SPREAD_RATE = 0.2;
     static BACT_NUM_LIMIT = 1000000;
 
+
+    static wartosc_creep = 0;
+    static tact_start_creep = 0;
+    static wartosc_creep_tacts = 1;
+
+    static wartosc_bact = 0;
+    static tact_start_bact= 0;
+    static wartosc_bact_tacts = 1;
+
     static initializedLocationModifiersList() {
         let locationModifiers = new ArrayList();
         locationModifiers.add(new LocationModifier(-1, 0));

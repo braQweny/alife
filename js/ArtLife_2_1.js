@@ -22,7 +22,7 @@ class ArtLife_2_1 {
                 console.log("%d", w.board[i][j].getCreepersNum());
 
         }
-      console.log("\n");
+        console.log("\n");
     }
 
     static mainTest(w) {
@@ -33,7 +33,7 @@ class ArtLife_2_1 {
             }
 
         }
-      console.log("\n");
+        console.log("\n");
     }
 
     static totalNum(w, what) {
@@ -59,6 +59,24 @@ class ArtLife_2_1 {
         }
     }
 
+    static addExtraBacteries(word, bactNumToAdd, tactStart, tacts, tact) {
+        let bactNum = parseInt(bactNumToAdd / tacts);
+        let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact < (tactStart + tacts));
+        if (inRange) {
+            console.log('TACT ==============>', tact);
+            word.sowBacteries(bactNum)
+        }
+    }
+
+    static addExtraCreepers(word, creepersNumToAdd, tactStart, tacts, tact) {
+        let creepersNum = parseInt(creepersNumToAdd / tacts);
+        let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact < (tactStart + tacts));
+        if (inRange) {
+            console.log('TACT ==============>', tact);
+            word.sowCreepers(creepersNum)
+        }
+    }
+
     static main() {
         let mainWorld;
         let tempWorld;
@@ -68,6 +86,7 @@ class ArtLife_2_1 {
         mainWorld.sowBacteries(Init.START_NUM_BACT);
         mainWorld.sowCreepers(Init.START_NUM_CREEPERS);
         let numTact = 0, num, totalBactNum;
+        console.log(this.totalNum(mainWorld, "BACTERIA"), '=====================>>>>>');
         arr.push({
             tactNum: numTact,
             bactNum: this.totalNum(mainWorld, "BACTERIA"),
@@ -89,29 +108,32 @@ class ArtLife_2_1 {
                 this.totallyCreepers.add(this.totalNum(mainWorld, "CREEPERS"));
                 totalBactNum = this.totalNum(mainWorld, "BACTERIA");
                 this.totallyBacteria.add(totalBactNum);
-
-                if (totalBactNum > Init.BACT_NUM_LIMIT) {
-                    prematureEndOfSimulation = true;
-                }
-
-                num++;
-                numTact++;
                 arr.push({
                     tactNum: numTact,
                     bactNum: this.totalNum(mainWorld, "BACTERIA"),
                     creeperNum: this.totalNum(mainWorld, "CREEPERS")
                 });
 
-
+                if (totalBactNum > Init.BACT_NUM_LIMIT) {
+                    prematureEndOfSimulation = true;
+                }
+                this.addExtraBacteries(mainWorld, Init.wartosc_bact, Init.tact_start_bact, Init.wartosc_creep_tacts, numTact);
+                this.addExtraCreepers(mainWorld, Init.wartosc_creep, Init.tact_start_creep, Init.wartosc_creep_tacts, numTact);
+                num++;
+                numTact++;
             }
+
+
             console.log("Przebieg " + numTact);
             this.mainTest(mainWorld);
+
 
         }
 
         console.log("\n");
         console.log("---------------------------------------");
         console.log("Bacteries");
+
         for (let i = 0; i < this.totallyCreepers.size(); i++) {
             console.log("%d", this.totallyBacteria.get(i));
         }
@@ -131,7 +153,7 @@ class ArtLife_2_1 {
         this.totallyBacteria.clear();
         this.totallyCreepers.clear();
 
-        return {arr:arr,total:[totallyC,totallyB]}
+        return {arr: arr, total: [totallyC, totallyB]}
     }
 }
 export default ArtLife_2_1

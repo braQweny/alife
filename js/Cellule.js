@@ -5,12 +5,12 @@ import World  from './World'
 class Cellule {
     xPos;
     yPos;
-    bacteriaNum = 0;
     old;
     creepers;
 
     constructor() {
-        this.creepers = new ArrayList()
+        this.creepers = new ArrayList();
+        this.bacteriaNum = 0;
     }
 
     setXPos(i) {
@@ -29,9 +29,6 @@ class Cellule {
         this.old = old
     }
 
-    getBactNum() {
-        return this.bacteriaNum
-    }
 
     setBactNum(bactNum) {
         this.bacteriaNum = bactNum
@@ -49,6 +46,10 @@ class Cellule {
                 'niż w niej się znajdowało')
 
         }
+    }
+
+    getBactNum() {
+        return this.bacteriaNum
     }
 
     getCreepersNum() {
