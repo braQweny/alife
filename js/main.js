@@ -211,7 +211,7 @@ function draw2() {
 
 function draw3() {
 
-
+    d3.select('#chart3 > svg').remove();
     var box = 60;
 
     var margin = {top: 40, right: 40, bottom: 40, left: 40};
@@ -362,6 +362,7 @@ up.addEventListener('click', () => {
     });
     draw1();
     draw2();
+    draw3();
     table(data['total']);
 });
 
