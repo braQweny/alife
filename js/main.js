@@ -10,9 +10,10 @@ let arr = data['arr'];
 let total = data['total'];
 let simulation = data['simulation'];
 console.dir(simulation);
+
 total[0].length = 100;
 total[1].length = 100;
-
+// console.log(simulation);
 
 table(data['total']);
 
@@ -34,6 +35,7 @@ var googleArr = arr.map((tactObject) => {
 // console.dir(googleArr)
 draw1()
 draw2()
+draw3()
 
 function draw1() {
 
@@ -129,9 +131,7 @@ function draw1() {
         .text('C');
 
 
-
 }
-
 
 
 function draw2() {
@@ -206,9 +206,110 @@ function draw2() {
         .attr('height', 50)
         .attr('fill', 'black')
         .text('C');
+}
+
+
+function draw3() {
+
+
+    var box = 60;
+
+    var margin = {top: 40, right: 40, bottom: 40, left: 40};
+    var width = 680 - margin.left - margin.right;
+    var height = 680 - margin.top - margin.bottom;
+
+    var svg = d3.select('#chart3')
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .call(responsivefy)
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    var svg2 = d3.select('#chart3').select('svg')
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+
+    function render(data) {
+        var t = d3.transition().duration(1000);
+
+        var updateRect = svg.selectAll('rect')
+            .data(data, (d) => d);
+
+        updateRect.exit().remove();
+        updateRect.enter().append('rect')
+            .attr('x', (d) => {
+                return d[2] * box;
+            })
+            .attr('y', d => {
+                return height - (d[3] + 1) * box;
+            })
+            .attr('width', box)
+            .attr('height', box)
+
+            .attr('fill', 'blue')
+            .attr('stroke', '#fff');
+
+        var updateText = svg.selectAll('text')
+            .data(data, (d) => d);
+
+        updateText.exit().remove();
+
+        updateText.enter().append("text")
+            .attr('x', (d) => {
+                return d[2] * box + 20;
+            })
+            .attr('y', d => {
+                return height - (d[3] + 1) * box + (box - 15);
+            })
+
+            .attr('fill', '#C5113E')
+            .text((d) => {
+                return d[1];
+            })
+
+
+        var updateText2 = svg2.selectAll('text')
+            .data(data, (d) => d);
+
+        updateText2.exit().remove();
+
+        updateText2.enter().append("text")
+            .attr('x', (d) => {
+                return d[2] * box + 20;
+            })
+            .attr('y', d => {
+                return height - (d[3] + 1) * box + (box - 30);
+            })
+
+            .attr('fill', 'white')
+            .text((d) => {
+                return d[0];
+            })
+
+
+    }
 
 
 
+    var test = 0;
+    var time = setInterval(function () {
+
+
+
+
+        render(simulation[test].world);
+
+
+
+
+        test++;
+        if (test == 10) {
+            clearInterval(time);
+
+        }
+    }, 500)
 
 }
 
@@ -244,6 +345,7 @@ up.addEventListener('click', () => {
     console.log('RECOMP');
     data = ArtLife_2_1.main();
     arr = data['arr'];
+    simulation = data['simulation'];
     googleArr = arr.map((tactObject) => {
         return [tactObject.creeperNum, tactObject.bactNum]
     });
@@ -306,7 +408,6 @@ function table(arr2) {
     document.getElementById('table').innerHTML = '';
     document.getElementById('table').append(theTable);
 }
-
 
 
 function responsivefy(svg) {

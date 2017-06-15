@@ -37,11 +37,20 @@ class ArtLife_2_1 {
         console.log("\n");
     }
 
-    static mainTest2(w) {
+    static mainTest2(w, numTact) {
+        let tempw = [];
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                tempw.push([w.board[i][j].getBactNum(), w.board[i][j].getCreepersNum(), w.board[i][j].xPos, w.board[i][j].yPos])
+            }
+
+        }
+
         this.simulation.push({
             tactNum: numTact,
-            world: w
+            world: tempw
         })
+
     }
 
     static totalNum(w, what) {
@@ -130,38 +139,39 @@ class ArtLife_2_1 {
 
 
             console.log("Przebieg " + numTact);
-            this.mainTest2()
-            ''
             this.mainTest(mainWorld);
+            this.mainTest2(mainWorld, numTact);
 
 
         }
 
-        console.log("\n");
-        console.log("---------------------------------------");
-        console.log("Bacteries");
-
-        for (let i = 0; i < this.totallyCreepers.size(); i++) {
-            console.log("%d", this.totallyBacteria.get(i));
-        }
-        console.log("Creepers");
-        for (let i = 0; i < this.totallyCreepers.size(); i++) {
-            console.log("%d", this.totallyCreepers.get(i));
-        }
-        if (prematureEndOfSimulation) {
-            console.log("Sumaryczna liczba bakterii przekroczyła " + Init.BACT_NUM_LIMIT
-                + " - komórki umierają/koniec symulacji.");
-        }
+        // console.log("\n");
+        // console.log("---------------------------------------");
+        // console.log("Bacteries");
+        //
+        // for (let i = 0; i < this.totallyCreepers.size(); i++) {
+        //     console.log("%d", this.totallyBacteria.get(i));
+        // }
+        // console.log("Creepers");
+        // for (let i = 0; i < this.totallyCreepers.size(); i++) {
+        //     console.log("%d", this.totallyCreepers.get(i));
+        // }
+        // if (prematureEndOfSimulation) {
+        //     console.log("Sumaryczna liczba bakterii przekroczyła " + Init.BACT_NUM_LIMIT
+        //         + " - komórki umierają/koniec symulacji.");
+        // }
 
         console.log("\n");
         let totallyB = this.totallyBacteria.toArray();
         let totallyC = this.totallyCreepers.toArray();
+        let simulation = this.simulation;
 
+        this.simulation = [];
         this.totallyBacteria.clear();
         this.totallyCreepers.clear();
-        this.simulation.length = 0;
 
-        return {arr: arr, total: [totallyC, totallyB], simulation: this.simulation}
+
+        return {arr: arr, total: [totallyC, totallyB], simulation: simulation}
     }
 }
 export default ArtLife_2_1
