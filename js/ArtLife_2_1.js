@@ -5,6 +5,7 @@ import World  from './World'
 class ArtLife_2_1 {
     static totallyCreepers = new ArrayList();
     static totallyBacteria = new ArrayList();
+    static simulation = [];
 
     static bacteriaTest(w) {
         for (let i = 0; i < Init.SIZE_WORLD; i++) {
@@ -34,6 +35,13 @@ class ArtLife_2_1 {
 
         }
         console.log("\n");
+    }
+
+    static mainTest2(w) {
+        this.simulation.push({
+            tactNum: numTact,
+            world: w
+        })
     }
 
     static totalNum(w, what) {
@@ -86,12 +94,7 @@ class ArtLife_2_1 {
         mainWorld.sowBacteries(Init.START_NUM_BACT);
         mainWorld.sowCreepers(Init.START_NUM_CREEPERS);
         let numTact = 0, num, totalBactNum;
-        console.log(this.totalNum(mainWorld, "BACTERIA"), '=====================>>>>>');
-        arr.push({
-            tactNum: numTact,
-            bactNum: this.totalNum(mainWorld, "BACTERIA"),
-            creeperNum: this.totalNum(mainWorld, "CREEPERS")
-        });
+
         console.log("Stan początkowy");
         this.mainTest(mainWorld);
 
@@ -102,17 +105,19 @@ class ArtLife_2_1 {
         while (numTact < Init.NUM_TACT && !prematureEndOfSimulation) {
             num = 0;
             while (num < Init.VEW_NUM_TACT && !prematureEndOfSimulation) {
+                arr.push({
+                    tactNum: numTact,
+                    bactNum: this.totalNum(mainWorld, "BACTERIA"),
+                    creeperNum: this.totalNum(mainWorld, "CREEPERS")
+                });
+
                 tempWorld = new World();
                 mainWorld.creepersAndBacteriaAction(mainWorld, tempWorld);
                 this.addNewBornOrganismsToMainWorldCellules(mainWorld, tempWorld);
                 this.totallyCreepers.add(this.totalNum(mainWorld, "CREEPERS"));
                 totalBactNum = this.totalNum(mainWorld, "BACTERIA");
                 this.totallyBacteria.add(totalBactNum);
-                arr.push({
-                    tactNum: numTact,
-                    bactNum: this.totalNum(mainWorld, "BACTERIA"),
-                    creeperNum: this.totalNum(mainWorld, "CREEPERS")
-                });
+
 
                 if (totalBactNum > Init.BACT_NUM_LIMIT) {
                     prematureEndOfSimulation = true;
@@ -125,6 +130,8 @@ class ArtLife_2_1 {
 
 
             console.log("Przebieg " + numTact);
+            this.mainTest2()
+            ''
             this.mainTest(mainWorld);
 
 
@@ -152,8 +159,9 @@ class ArtLife_2_1 {
 
         this.totallyBacteria.clear();
         this.totallyCreepers.clear();
+        this.simulation.length = 0;
 
-        return {arr: arr, total: [totallyC, totallyB]}
+        return {arr: arr, total: [totallyC, totallyB], simulation: this.simulation}
     }
 }
 export default ArtLife_2_1
