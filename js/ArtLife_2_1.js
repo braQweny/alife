@@ -80,7 +80,7 @@ class ArtLife_2_1 {
     let bactNum = parseInt(bactNumToAdd / tacts)
     let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact < (tactStart + tacts))
     if (inRange) {
-      console.log('TACT ==============>', tact)
+      // console.log('TACT ==============>', tact)
       word.sowBacteries(bactNum)
     }
   }
@@ -89,7 +89,7 @@ class ArtLife_2_1 {
     let creepersNum = parseInt(creepersNumToAdd / tacts)
     let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact < (tactStart + tacts))
     if (inRange) {
-      console.log('TACT ==============>', tact)
+      // console.log('TACT ==============>', tact)
       word.sowCreepers(creepersNum)
     }
   }
@@ -105,7 +105,7 @@ class ArtLife_2_1 {
     let numTact = 0, num, totalBactNum
 
     console.log('Stan początkowy')
-    this.mainTest(mainWorld)
+    // this.mainTest(mainWorld)
 
     this.totallyCreepers.add(this.totalNum(mainWorld, 'CREEPERS'))
     this.totallyBacteria.add(this.totalNum(mainWorld, 'BACTERIA'))
@@ -136,8 +136,8 @@ class ArtLife_2_1 {
         numTact++
       }
 
-      console.log('Przebieg ' + numTact)
-      this.mainTest(mainWorld)
+      // console.log('Przebieg ' + numTact)
+      // this.mainTest(mainWorld)
       this.mainTest2(mainWorld, numTact)
 
     }

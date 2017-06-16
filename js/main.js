@@ -148,18 +148,12 @@ function draw2 () {
     .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
   var xScale = d3.scaleLinear().domain(d3.extent(datad3, d => d[0])).range([0, width])
+  var yScale = d3.scaleLinear().domain(d3.extent(datad3, d => d[1])).range([height, 0])
 
-  svg
-    .append('g')
-    .attr('transform', `translate(0, ${height})`)
-    .call(d3.axisBottom(xScale))
+  svg.append('g').attr('transform', `translate(0, ${height})`).call(d3.axisBottom(xScale))
+  svg.append('g').call(d3.axisLeft(yScale))
 
-  var yScale = d3.scaleLinear()
-    .domain(d3.extent(datad3, d => d[1]))
-    .range([height, 0])
-  svg
-    .append('g')
-    .call(d3.axisLeft(yScale))
+
 
   var lineFunc = d3.line()
     .x(function (d) {
@@ -172,7 +166,7 @@ function draw2 () {
   svg.append('svg:path')
     .attr('d', lineFunc(datad3))
     .attr('stroke', 'blue')
-    .attr('stroke-width', 0)
+    .attr('stroke-width', 1)
     .attr('fill', 'red')
 
   svg.append('rect')
@@ -298,7 +292,7 @@ function draw3 () {
   var time = setInterval(function () {
 
     render(simulation[test].world)
-    console.log('TAKT =>', test)
+    // console.log('TAKT =>', test)
     test++
     if (test == 10) {
       clearInterval(time)

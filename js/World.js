@@ -18,7 +18,7 @@ class World {
 
     static isCelluleOut(x, y) {
 
-        return (x < 0) || (y < 0) || (x === Init.SIZE_WORLD) || (y === Init.SIZE_WORLD);
+        return (x < 0) || (y < 0) || (x == Init.SIZE_WORLD) || (y == Init.SIZE_WORLD);
     }
 
     setBacteriaNumAtPosition(bactNum, posX, posY) {
