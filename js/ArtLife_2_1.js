@@ -76,18 +76,18 @@ class ArtLife_2_1 {
     }
   }
 
-  static addExtraBacteries (word, bactNumToAdd, tactStart, tacts, tact) {
+  static addExtraBacteries (mainWorld, bactNumToAdd, tactStart, tacts, tact) {
     let bactNum = parseInt(bactNumToAdd / tacts);
-    let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact < (tactStart + tacts));
+    let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact <= (tactStart + tacts));
     if (inRange) {
       // console.log('TACT ==============>', tact)
-      word.sowBacteries(bactNum)
+        mainWorld.sowBacteries(bactNum)
     }
   }
 
   static addExtraCreepers (word, creepersNumToAdd, tactStart, tacts, tact) {
     let creepersNum = parseInt(creepersNumToAdd / tacts);
-    let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact < (tactStart + tacts));
+    let inRange = ((tactStart + tacts ) < Init.NUM_TACT) && (tactStart <= tact) && ( tact <= (tactStart + tacts));
     if (inRange) {
       // console.log('TACT ==============>', tact)
       word.sowCreepers(creepersNum)

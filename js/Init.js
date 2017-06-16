@@ -22,7 +22,7 @@ class Init {
     static wartosc_creep_tacts = 1;
 
     static wartosc_bact = 0;
-    static tact_start_bact= 0;
+    static tact_start_bact = 0;
     static wartosc_bact_tacts = 1;
 
     static initializedLocationModifiersList() {
@@ -32,11 +32,10 @@ class Init {
         locationModifiers.add(new LocationModifier(0, -1));
         locationModifiers.add(new LocationModifier(0, 1));
 
-        locationModifiers.add(new LocationModifier(-1, -1));
-        locationModifiers.add(new LocationModifier(1, 1));
-        locationModifiers.add(new LocationModifier(-1, 1));
-        locationModifiers.add(new LocationModifier(1, -1));
-
+        // locationModifiers.add(new LocationModifier(-1, -1));
+        // locationModifiers.add(new LocationModifier(1, 1));
+        // locationModifiers.add(new LocationModifier(-1, 1));
+        // locationModifiers.add(new LocationModifier(1, -1));
         return locationModifiers;
     }
 }

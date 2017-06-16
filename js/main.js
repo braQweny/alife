@@ -8,6 +8,7 @@ import  Helpers  from './Helpers'
 let data = ArtLife_2_1.main()
 let arr = data['arr']
 let total = data['total']
+console.dir(total)
 let simulation = data['simulation']
 
 
@@ -17,22 +18,11 @@ console.log(simulation);
 
 table(total)
 
-let num = arr.map((tactObject) => {
-    return tactObject.tactNum
-})
-let creep = arr.map((tactObject) => {
-    return tactObject.creeperNum
-})
-
-let back = arr.map((tactObject) => {
-    return tactObject.bactNum
-})
 
 var googleArr = arr.map((tactObject) => {
     return [tactObject.creeperNum, tactObject.bactNum]
 })
-// googleArr.unshift(['creeperNum', 'bactNum'])
-// console.dir(googleArr)
+
 draw1()
 draw2()
 draw3()
@@ -51,9 +41,9 @@ function draw1() {
         .attr('height', height + margin.top + margin.bottom)
         .call(responsivefy)
         .append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
+        .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    var xScale = d3.scaleLinear().domain([0, 100]).range([0, width])
+    var xScale = d3.scaleLinear().domain([0, Init.NUM_TACT]).range([0, width]);
 
     svg
         .append('g')
@@ -307,49 +297,27 @@ button.addEventListener('click', () => {
     Helpers.updateValue()
     Helpers.setValue()
     console.log('UPDATE')
-    // console.log(Init.SIZE_WORLD)
-    // console.log(typeof Init.NUM_TACT)
-    // console.log(Init.VEW_NUM_TACT)
-    // console.log(Init.START_NUM_CREEPERS)
-    //
-    // console.log(Init.START_NUM_BACT)
-    //
-    // console.log(Init.CREEPER_ENERGY_PRO_LIFE)
-    // console.log(Init.CREEPER_INITIAL_ENERGY)
-    // console.log(Init.CREEPER_ENERGY_RESERVE)
-    //
-    // console.log(Init.MAX_CREEPER_NUM_BORN_PER_TACK)
-    // console.log(Init.MAX_BACT_EATEN_BY_CREEPER)
-    //
-    // console.log(Init.BACT_MULTIPLICATION_RATE)
-    // console.log(Init.BACT_SPREAD_RATE)
-    // console.log(Init.BACT_NUM_LIMIT)
+
 
 })
 
 let up = document.getElementById('up')
 
 up.addEventListener('click', () => {
-    console.log('RECOMP')
-    data = ArtLife_2_1.main()
-    total = data['total']
-    arr = data['arr']
-    simulation = data['simulation']
-    console.dir(simulation.length)
+    console.log('RECOMP');
+    data = ArtLife_2_1.main();
+    total = data['total'];
+    total[0].length = 100;
+    total[1].length = 100;
+    console.dir(total);
+    arr = data['arr'];
+    simulation = data['simulation'];
+    console.dir(simulation.length);
     googleArr = arr.map((tactObject) => {
         return [tactObject.creeperNum, tactObject.bactNum]
     })
 
-    num = arr.map((tactObject) => {
-        return tactObject.tactNum
-    })
-    creep = arr.map((tactObject) => {
-        return tactObject.creeperNum
-    })
 
-    back = arr.map((tactObject) => {
-        return tactObject.bactNum
-    })
     draw1();
     draw2();
     draw3();
