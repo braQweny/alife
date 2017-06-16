@@ -15,7 +15,7 @@ total[0].length = 100
 total[1].length = 100
 // console.log(simulation);
 
-table(data['total'])
+table(total)
 
 let num = arr.map((tactObject) => {
   return tactObject.tactNum
@@ -174,28 +174,28 @@ function draw2 () {
     .attr('y', 250)
     .attr('width', 90)
     .attr('height', 20)
-    .attr('fill', 'blue')
+    .attr('fill', 'red')
   svg.append('text')
     .attr('x', 730)
     .attr('y', 265)
     .attr('width', 70)
     .attr('height', 50)
-    .attr('fill', 'white')
-    .text('B')
+    .attr('fill', 'black')
+    .text('C')
 
   svg.append('rect')
     .attr('x', 0)
     .attr('y', 0)
     .attr('width', 50)
     .attr('height', 20)
-    .attr('fill', 'red')
+    .attr('fill', 'blue')
   svg.append('text')
     .attr('x', 20)
     .attr('y', 15)
     .attr('width', 70)
     .attr('height', 50)
-    .attr('fill', 'black')
-    .text('C')
+    .attr('fill', 'white')
+    .text('B')
 }
 
 function draw3 () {
@@ -333,6 +333,7 @@ let up = document.getElementById('up')
 up.addEventListener('click', () => {
   console.log('RECOMP')
   data = ArtLife_2_1.main()
+  total = data['total']
   arr = data['arr']
   simulation = data['simulation']
   googleArr = arr.map((tactObject) => {
