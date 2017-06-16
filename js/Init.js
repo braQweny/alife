@@ -32,10 +32,10 @@ class Init {
         locationModifiers.add(new LocationModifier(0, -1));
         locationModifiers.add(new LocationModifier(0, 1));
 
-        // locationModifiers.add(new LocationModifier(-1, -1));
-        // locationModifiers.add(new LocationModifier(1, 1));
-        // locationModifiers.add(new LocationModifier(-1, 1));
-        // locationModifiers.add(new LocationModifier(1, -1));
+        locationModifiers.add(new LocationModifier(-1, -1));
+        locationModifiers.add(new LocationModifier(1, 1));
+        locationModifiers.add(new LocationModifier(-1, 1));
+        locationModifiers.add(new LocationModifier(1, -1));
 
         return locationModifiers;
     }
