@@ -241,7 +241,6 @@ function draw3 () {
       })
       .attr('width', box)
       .attr('height', box)
-
       .attr('fill', (d) => {
         if (d[0] > d[1]) {
           return 'green'
@@ -299,7 +298,7 @@ function draw3 () {
   var time = setInterval(function () {
 
     render(simulation[test].world)
-
+    console.log('TAKT =>', test)
     test++
     if (test == 10) {
       clearInterval(time)
