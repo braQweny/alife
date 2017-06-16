@@ -242,7 +242,19 @@ function draw3 () {
       .attr('width', box)
       .attr('height', box)
 
-      .attr('fill', 'blue')
+      .attr('fill', (d) => {
+        if (d[0] > d[1]) {
+          return 'green'
+        }
+        else if
+        (d[0] < d[1]) {
+          return 'black'
+        }
+        else {
+          return 'blue'
+        }
+
+      })
       .attr('stroke', '#fff')
 
     var updateText = svg.selectAll('text')
