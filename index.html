@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>AI</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
     <style>
         .chart {
             background: lightgray;
@@ -12,96 +13,180 @@
 
 </head>
 <body>
-<div id="chart1" style="width:900px;margin:0 auto;" class="chart"></div>
-<br>
-<br>
-<div id="chart2" style="width:900px;margin:0 auto;" class="chart"></div>
-<br>
-<br>
-<div id="chart3" style="width:900px;margin:0 auto;" class="chart"></div>
-<button id="up">UP</button>
-
-<div id="panel">
-    <button id="update">update</button>
-    <br>
-    <label for="SIZE_WORLD">SIZE_WORLD</label>
-    <input type="text" name="SIZE_WORLD" id="SIZE_WORLD"/>
-    <br>
-    <label for="NUM_TACT">NUM_TACT</label>
-    <input type="text" name="NUM_TACT" id="NUM_TACT"/>
-    <br>
-
-    <label for="VEW_NUM_TACT">VEW_NUM_TACT</label>
-    <input type="text" name="VEW_NUM_TACT" id="VEW_NUM_TACT"/>
-    <br>
-
-    <label for="START_NUM_CREEPERS">START_NUM_CREEPERS</label>
-    <input type="text" name="START_NUM_CREEPERS" id="START_NUM_CREEPERS"/>
-    <br>
-
-    <label for="START_NUM_BACT">START_NUM_BACT</label>
-    <input type="text" name="START_NUM_BACT" id="START_NUM_BACT"/>
-
-    <br>
-    <label for="CREEPER_ENERGY_PRO_LIFE">CREEPER_ENERGY_PRO_LIFE</label>
-    <input type="text" name="CREEPER_ENERGY_PRO_LIFE" id="CREEPER_ENERGY_PRO_LIFE"/>
-    <br>
-    <label for="CREEPER_INITIAL_ENERGY">CREEPER_INITIAL_ENERGY</label>
-    <input type="text" name="CREEPER_INITIAL_ENERGY" id="CREEPER_INITIAL_ENERGY"/>
-
-    <br>
-    <label for="CREEPER_ENERGY_RESERVE">CREEPER_ENERGY_RESERVE</label>
-    <input type="text" name="CREEPER_ENERGY_RESERVE" id="CREEPER_ENERGY_RESERVE"/>
-    <br>
-
-    <label for="MAX_CREEPER_NUM_BORN_PER_TACK">MAX_CREEPER_NUM_BORN_PER_TACK</label>
-    <input type="text" name="MAX_CREEPER_NUM_BORN_PER_TACK" id="MAX_CREEPER_NUM_BORN_PER_TACK"/>
-    <br>
-    <label for="MAX_BACT_EATEN_BY_CREEPER">MAX_BACT_EATEN_BY_CREEPER</label>
-    <input type="text" name="MAX_BACT_EATEN_BY_CREEPER" id="MAX_BACT_EATEN_BY_CREEPER"/>
-    <br>
-    <label for="BACT_MULTIPLICATION_RATE">BACT_MULTIPLICATION_RATE</label>
-    <input type="text" name="BACT_MULTIPLICATION_RATE" id="BACT_MULTIPLICATION_RATE"/>
-    <br>
-    <label for="BACT_SPREAD_RATE">BACT_SPREAD_RATE</label>
-    <input type="text" name="BACT_SPREAD_RATE" id="BACT_SPREAD_RATE"/>
-    <br>
-    <label for="BACT_NUM_LIMIT">BACT_NUM_LIMIT</label>
-    <input type="text" name="BACT_NUM_LIMIT" id="BACT_NUM_LIMIT"/>
-    <br>
-    <br>
-    <div style="display:inline-block">
-
-        <label for="wartosc_creep">ilosc pelzaczy</label>
-        <input type="number" name="wartosc_creep" id="wartosc_creep" value="0"/>
-
-        <label for="tact_start_creep">takt poczatkowy</label>
-        <input type="number" name="tact_start_creep" id="tact_start_creep" value="0"/>
-
-        <label for="wartosc_creep_tacts">czas trwania</label>
-        <input type="number" name="wartosc_creep_tacts" id="wartosc_creep_tacts" value="1"/>
+<br><br>
+<div class="container-fluid">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-6">
+            <div id="chart1" style="" class="chart"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="chart2" style="" class="chart"></div>
+        </div>
 
     </div>
-    <br>
-    <br>
-    <div style="display:inline-block">
+    <br><br>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
 
-        <label for="wartosc_bact">ilosc bakterii</label>
-        <input type="number" name="wartosc_bact" id="wartosc_bact" value="0"/>
+        </div>
 
-        <label for="tact_start_bact">takt poczatkowy</label>
-        <input type="number" name="tact_start_bact" id="tact_start_bact" value="0"/>
-
-        <label for="wartosc_bact_tacts">czas trwania</label>
-        <input type="number" name="wartosc_bact_tacts" id="wartosc_bact_tacts" value="1"/>
 
     </div>
-    <br>
-    <br>
 
-    <div id="table"></div>
+</div> <!-- /container -->
 
+
+<div class="container-fluid">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-6" id="panel">
+            <form class="" id="">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="SIZE_WORLD">SIZE_WORLD</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="SIZE_WORLD" id="SIZE_WORLD" disabled/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="NUM_TACT">NUM_TACT</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="NUM_TACT" id="NUM_TACT" disabled/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="VEW_NUM_TACT">VEW_NUM_TACT</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="VEW_NUM_TACT" id="VEW_NUM_TACT"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="START_NUM_CREEPERS">START_NUM_CREEPERS</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="START_NUM_CREEPERS" id="START_NUM_CREEPERS"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="START_NUM_BACT">START_NUM_BACT</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="START_NUM_BACT" id="START_NUM_BACT"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="CREEPER_ENERGY_PRO_LIFE">CREEPER_ENERGY_PRO_LIFE</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="CREEPER_ENERGY_PRO_LIFE"
+                               id="CREEPER_ENERGY_PRO_LIFE"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="CREEPER_INITIAL_ENERGY">CREEPER_INITIAL_ENERGY</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="CREEPER_INITIAL_ENERGY"
+                               id="CREEPER_INITIAL_ENERGY"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="CREEPER_ENERGY_RESERVE">CREEPER_ENERGY_RESERVE</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="CREEPER_ENERGY_RESERVE"
+                               id="CREEPER_ENERGY_RESERVE"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="MAX_CREEPER_NUM_BORN_PER_TACK">MAX_CREEPER_NUM_BORN_PER_TACK</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="MAX_CREEPER_NUM_BORN_PER_TACK"
+                               id="MAX_CREEPER_NUM_BORN_PER_TACK"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                           for="MAX_BACT_EATEN_BY_CREEPER">MAX_BACT_EATEN_BY_CREEPER</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="MAX_BACT_EATEN_BY_CREEPER"
+                               id="MAX_BACT_EATEN_BY_CREEPER"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                           for="BACT_MULTIPLICATION_RATE">BACT_MULTIPLICATION_RATE</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="BACT_MULTIPLICATION_RATE"
+                               id="BACT_MULTIPLICATION_RATE"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="BACT_SPREAD_RATE">BACT_SPREAD_RATE</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="BACT_SPREAD_RATE" id="BACT_SPREAD_RATE"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="BACT_NUM_LIMIT">BACT_NUM_LIMIT</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="BACT_NUM_LIMIT" id="BACT_NUM_LIMIT"/>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <form class="form-inline center-block" id="">
+                <div class="form-group">
+                    <label for="wartosc_creep">ilosc pelzaczy</label>
+                    <input class="form-control" type="number" name="wartosc_creep" id="wartosc_creep" value="0"/>
+                </div>
+                <div class="form-group">
+                    <label for="tact_start_creep">takt poczatkowy</label>
+                    <input class="form-control" type="number" name="tact_start_creep" id="tact_start_creep" value="0"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="wartosc_creep_tacts">czas trwania</label>
+                    <input class="form-control" type="number" name="wartosc_creep_tacts" id="wartosc_creep_tacts"
+                           value="1"/>
+                </div>
+                <br>
+                <div class="form-group ">
+                    <label for="wartosc_bact">ilosc bakterii</label>
+                    <input class="form-control" type="number" name="wartosc_bact" id="wartosc_bact" value="0"/>
+                </div>
+                <div class="form-group">
+                    <label for="tact_start_bact">takt poczatkowy</label>
+                    <input class="form-control" type="number" name="tact_start_bact" id="tact_start_bact" value="0"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="wartosc_bact_tacts">czas trwania</label>
+                    <input class="form-control" type="number" name="wartosc_bact_tacts" id="wartosc_bact_tacts"
+                           value="1"/>
+                </div>
+
+            </form>
+            <br>
+            <button class="btn btn-default btn-lg" id="up">Aktualizuj Wykres</button>
+            <button class="btn btn-default btn-lg" id="update">Aktualizuj Dane</button>
+            <br>
+            <br>
+
+        </div>
+        <div class="col-md-6">
+            <div id="chart3" class="chart center-block"></div>
+        </div>
+    </div>
 </div>
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div> <!-- /container -->
+
+
+<br><br>
+<div id="table" class="table"></div>
 <script src="public/bundle.js"></script>
 </body>
 </html>

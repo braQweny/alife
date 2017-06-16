@@ -205,7 +205,7 @@ class Helpers extends Init {
         Helpers.BACT_SPREAD_RATE = BACT_SPREAD_RATE.value
         Helpers.BACT_NUM_LIMIT = BACT_NUM_LIMIT.value
 
-        Helpers.wartosc_creep = wartosc_creep.value
+        Helpers.wartosc_creep = Number(wartosc_creep.value)
         Helpers.tact_start_creep = tact_start_creep.value
         Helpers.wartosc_creep_tacts = wartosc_creep_tacts.value
 
