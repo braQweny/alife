@@ -1,5 +1,5 @@
 import  Init  from './Init'
-import ArtLife_2_1  from './ArtLife_2_1'
+
 class Helpers extends Init {
 
     static get SIZE_WORLD() {

@@ -5,5 +5,4 @@ class LocationModifier {
     }
 }
 
-
 export default LocationModifier
