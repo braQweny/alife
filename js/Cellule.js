@@ -118,7 +118,7 @@ class Cellule {
             newXPos = this.xPos + existingCellulesLocationModifiers.get(i).modifyX;
             newYPos = this.yPos + existingCellulesLocationModifiers.get(i).modifyY;
 
-            if (existingCellulesLocationModifiers.size() == 1) {
+            if (existingCellulesLocationModifiers.size() === 1) {
                 tempWorld.board[newXPos][newYPos].addBactNum(remainingNewBacteriaMovingToNewCells);
                 remainingNewBacteriaMovingToNewCells = 0
             } else {

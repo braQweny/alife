@@ -54,12 +54,12 @@ class ArtLife_2_1 {
   }
 
   static totalNum (w, what) {
-    let sum = 0
+    let sum = 0;
     for (let i = 0; i < Init.SIZE_WORLD; i++)
       for (let j = 0; j < Init.SIZE_WORLD; j++)
         switch (what) {
           case 'BACTERIA':
-            sum += w.board[i][j].getBactNum()
+            sum += w.board[i][j].getBactNum();
             break
           case 'CREEPERS':
             sum += w.board[i][j].getCreepersNum()
@@ -132,7 +132,7 @@ class ArtLife_2_1 {
         }
         this.addExtraBacteries(mainWorld, Init.wartosc_bact, Init.tact_start_bact, Init.wartosc_creep_tacts, numTact);
         this.addExtraCreepers(mainWorld, Init.wartosc_creep, Init.tact_start_creep, Init.wartosc_creep_tacts, numTact);
-        num++
+        num++;
         numTact++
       }
 

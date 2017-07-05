@@ -45,25 +45,34 @@ class Creeper {
     checkNewCellules(w, tempWorld) {
         let locationModifiers = Init.initializedLocationModifiersList();
         // console.log(locationModifiers);
-        var i, newXPos, newYPos, bestXPos, bestYPos, bactNum;
+        let i, newXPos, newYPos, bestXPos, bestYPos, bactNum;
         // console.log(locationModifiers.size())
         bestXPos = -1;
         bestYPos = -1;
         bactNum = 0;
 
         while (locationModifiers.size() > 0) {
-
             i = parseInt((Math.random() * locationModifiers.size()));
-            // console.log(locationModifiers.size())
-            // console.log(this.xPos + locationModifiers.get(i).modifyX)
-            newXPos = this.xPos + locationModifiers.get(i).modifyX;
-            newYPos = this.yPos + locationModifiers.get(i).modifyY;
+            i = (i >= locationModifiers.size()) ? (locationModifiers.size() - 1) : i;
+
+            try {
+                newXPos = this.xPos + locationModifiers.get(i).modifyX;
+                newYPos = this.yPos + locationModifiers.get(i).modifyY;
+            }
+            catch (err) {
+
+                console.log('ERROR', '=========================================>');
+                console.log(i);
+                console.log(locationModifiers.get(i))
+            }
+
+
             // console.log(newXPos);
 
             if (!(World.isCelluleOut(newXPos, newYPos))) {
                 if (w.board[newXPos][newYPos].getBactNum() > bactNum) {
                     bactNum = w.board[newXPos][newYPos].getBactNum();
-                    bestXPos = newXPos
+                    bestXPos = newXPos;
                     bestYPos = newYPos
                 }
             }
